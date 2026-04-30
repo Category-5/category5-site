@@ -505,6 +505,17 @@ a:hover { color: var(--accent-soft); }
   min-height: 1.4em;
 }
 
+.team-peek .why-lede {
+  margin: 1.75rem 0 1.25rem;
+}
+.team-peek-body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: 0 0 2rem;
+}
+
 .team-link {
   display: inline-flex;
   align-items: center;
