@@ -1,16 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#F0F3F7"/>
-  <text x="32" y="46"
-        text-anchor="middle"
-        font-family="Georgia, 'Times New Roman', serif"
-        font-style="italic"
-        font-weight="600"
-        font-size="44"
-        fill="#1B3A6B">5</text>
-  <path d="M 14 52 Q 32 56 50 50"
-        fill="none"
-        stroke="#1B3A6B"
-        stroke-width="2"
-        stroke-linecap="round"
-        opacity="0.7"/>
+<svg width="64" height="64" viewBox="-30 -88 417 417" xmlns="http://www.w3.org/2000/svg">
+  <path d="M202.098 0L231.816 0L29.718 240.267H0L202.098 0Z" fill="#1F2A3A"/>
+  <path d="M284.725 85.9253H172.284L244.559 0H357L320.862 42.9627H290.737L307.51 23.0215H255.321L221.774 62.9038H273.963H304.089L284.725 85.9253Z" fill="#1F2A3A"/>
+  <path d="M205.804 181.585H93.3636L129.501 138.623L159.627 138.623L142.854 158.564H195.043L228.59 118.681H146.275L165.639 95.6599H278.079L205.804 181.585Z" fill="#1F2A3A"/>
 </svg>
