@@ -3,164 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Category5 — Useful software, made by humans.</title>
-  <meta name="description" content="Four developers building small, useful apps for real life — the kind we want our families to use.">
+  <title>Category5 — Software products for any storm</title>
+  <meta name="description" content="Four developers building small, useful apps for real life. Every signal on this sweep is something we made.">
   <meta name="author" content="Category5">
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   <link rel="canonical" href="https://category5.co/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Category5 — Useful software, made by humans.">
-  <meta property="og:description" content="Four developers building small, useful apps for real life — the kind we want our families to use.">
+  <meta property="og:title" content="Category5 — Software products for any storm">
+  <meta property="og:description" content="Four developers building small, useful apps for real life. Every signal on this sweep is something we made.">
   <meta property="og:url" content="https://category5.co/">
   <meta property="og:image" content="https://category5.co/assets/images/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+
+    /* Always land at the top: drop any stale #hash and disable scroll restore */
+    (function () {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      addEventListener("pageshow", function () { scrollTo({ top: 0, behavior: "instant" }); });
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
   <nav class="nav" aria-label="Primary">
-    <a href="/" class="nav-brand" aria-label="Category5 home">
-      <img src="/assets/images/cat5-logo.svg" alt="Category5" class="brand-logo" width="162" height="28">
-    </a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="mailto:hello@category5.co">Say hi</a>
+    <div class="nav__left">
+      <a href="/" class="nav__brand" aria-label="Category5 home">
+        <span class="brand-logo"></span>
+      </a>
+      <button type="button" class="nav__coords" aria-label="Toggle station coordinates">35.78&deg; N, 78.64&deg; W</button>
+    </div>
+    <div class="nav__right">
+      <a href="/about.html" class="nav__link">About</a>
+      <a href="mailto:hello@category5.co" class="nav__cta">Send a signal</a>
+      <button type="button" class="theme-toggle nav__toggle" aria-label="Switch to dark mode">
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-headline">
-        Useful software,<br>
-        <em>made by humans.</em>
-      </h1>
-      <p class="hero-sub">
-        We&rsquo;re four developers building small, useful apps for real life
-        &mdash; the kind we want our families to use.
+    <div class="radar hero__radar" aria-hidden="true">
+      <div class="radar__trail"></div>
+      <svg class="radar__screen" viewBox="0 0 760 760" focusable="false">
+        <circle class="radar__ring" cx="380" cy="380" r="360" stroke-opacity="0.24" />
+        <circle class="radar__ring" cx="380" cy="380" r="270" stroke-opacity="0.14" />
+        <circle class="radar__ring" cx="380" cy="380" r="180" stroke-opacity="0.10" />
+        <circle class="radar__ring" cx="380" cy="380" r="90" stroke-opacity="0.10" />
+        <g class="radar__arm" style="transform-origin: 380px 380px">
+          <line class="radar__sweep" x1="380" y1="380" x2="380" y2="20" />
+        </g>
+        <circle class="radar__center" cx="380" cy="380" r="2.5" />
+        <g class="radar__blip radar__blip--accent" style="--blip-delay: 2.27s">
+          <circle class="radar__blip-dot" cx="497" cy="245" r="6" />
+          <circle class="radar__blip-ring" cx="497" cy="245" r="13" />
+        </g>
+        <g class="radar__blip" style="--blip-delay: 12.47s">
+          <circle class="radar__blip-dot" cx="262" cy="500" r="6" />
+          <circle class="radar__blip-ring" cx="262" cy="500" r="13" />
+        </g>
+        <g class="radar__blip" style="--blip-delay: 16.94s">
+          <circle class="radar__blip-dot" cx="204" cy="257" r="6" />
+          <circle class="radar__blip-ring" cx="204" cy="257" r="13" />
+        </g>
+      </svg>
+    </div>
+    <div class="hero__copy">
+      <p class="kicker hero__kicker">Category5 &mdash; On watch since 2026</p>
+      <h1 class="hero__headline">Software products<br>for any storm</h1>
+      <p class="hero__sub">
+        Four friends building small, useful apps for real life.
       </p>
-      <a href="#apps" class="hero-cue">
-        <span class="hero-cue-arrow" aria-hidden="true">&darr;</span>
-        See what we&rsquo;ve made
-      </a>
+      <a href="#log" class="hero__cue">Scroll for the log &darr;</a>
     </div>
   </header>
 
-  <main id="apps">
+  <main id="log" class="contact-log" aria-label="Contact log">
+    <div class="contact-log__header">
+      <p class="kicker">Contact log</p>
+      <span class="contact-log__rule" aria-hidden="true"></span>
+      <p class="kicker">Everything on the sweep</p>
+    </div>
 
     <!-- Remember -->
-    <section class="app-section app-section--remember" aria-labelledby="remember-name">
-      <article class="app app--feature">
-        <div class="app-content">
-          <img src="/assets/images/remember-logo.svg" alt="" class="app-logo" width="220" height="40" loading="lazy">
-          <h2 id="remember-name" class="app-name visually-hidden">Remember</h2>
-          <p class="app-tagline">Journaling to remember.</p>
-          <p class="app-body">
-            This unique take on journaling helps you capture a piece of every day so that you and your family can look back on it for years to come.
-          </p>
-          <a href="https://rememberjournal.app/" class="app-link" target="_blank" rel="noopener">
-            Visit Remember <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="app-imagery app-imagery--remember">
-          <picture>
-            <source srcset="/assets/images/remember-hero.webp" type="image/webp">
-            <img
-              src="/assets/images/remember-hero.png"
-              alt="Remember showing a year-at-a-glance mosaic of daily photos."
-              class="app-shot app-shot--primary"
-              loading="lazy"
-              width="1800"
-              height="1077"
-            >
-          </picture>
-          <picture>
-            <source srcset="/assets/images/remember-entry.webp" type="image/webp">
-            <img
-              src="/assets/images/remember-entry.png"
-              alt="Remember showing a daily journal entry with a photo and written reflection."
-              class="app-shot app-shot--secondary"
-              loading="lazy"
-              width="1200"
-              height="854"
-            >
-          </picture>
-        </div>
-      </article>
-    </section>
+    <article class="log-entry" aria-labelledby="remember-name">
+      <div class="log-entry__scope">
+        <svg class="scope" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+          <circle class="scope__ring" cx="48" cy="48" r="44" stroke-opacity="0.25" />
+          <circle class="scope__ring" cx="48" cy="48" r="26" stroke-opacity="0.12" />
+          <circle class="scope__center" cx="48" cy="48" r="1.5" />
+          <circle class="scope__blip scope__blip--accent" cx="64" cy="30" r="5" />
+        </svg>
+      </div>
+      <p class="log-entry__meta">Signal 01<br>BRG 055&deg;</p>
+      <div class="log-entry__body">
+        <h2 id="remember-name" class="log-entry__title">Remember</h2>
+        <p class="log-entry__desc">
+          A unique take on journaling that helps you capture a piece of every day,
+          so you and your family can look back for years to come.
+        </p>
+      </div>
+      <a href="https://rememberjournal.app/" class="mono-link log-entry__link" target="_blank" rel="noopener">Learn more &rarr;</a>
+    </article>
 
     <!-- SetCheck -->
-    <section class="app-section app-section--setcheck" aria-labelledby="setcheck-name">
-      <article class="app">
-        <div class="app-content">
-          <div class="app-logo-row">
-            <img src="/assets/images/setcheck-logo.svg" alt="" class="app-icon" width="40" height="40" loading="lazy">
-            <h2 id="setcheck-name" class="app-name">SetCheck</h2>
-          </div>
-          <p class="app-tagline">Free Collaborative Setlist Builder.</p>
-          <p class="app-body">
-            A completely free way to collaborate on a setlist. Share songs, vote on them, and link to any music streamer.
-          </p>
-          <a href="https://www.setcheck.app/" class="app-link" target="_blank" rel="noopener">
-            Visit SetCheck <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="app-imagery">
-          <picture>
-            <source srcset="/assets/images/setcheck-hero.webp" type="image/webp">
-            <img
-              src="/assets/images/setcheck-hero.png"
-              alt="SetCheck — Build setlists together. Vote on songs. 100% free."
-              class="app-shot app-shot--setcheck"
-              loading="lazy"
-              width="1200"
-              height="630"
-            >
-          </picture>
-        </div>
-      </article>
-    </section>
+    <article class="log-entry" aria-labelledby="setcheck-name">
+      <div class="log-entry__scope">
+        <svg class="scope" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+          <circle class="scope__ring" cx="48" cy="48" r="44" stroke-opacity="0.25" />
+          <circle class="scope__ring" cx="48" cy="48" r="26" stroke-opacity="0.12" />
+          <circle class="scope__center" cx="48" cy="48" r="1.5" />
+          <circle class="scope__blip" cx="33" cy="63" r="5" />
+        </svg>
+      </div>
+      <p class="log-entry__meta">Signal 02<br>BRG 210&deg;</p>
+      <div class="log-entry__body">
+        <h2 id="setcheck-name" class="log-entry__title">SetCheck</h2>
+        <p class="log-entry__desc">
+          A completely free way to collaborate on a setlist. Share songs, vote on them,
+          and link out to any music streamer.
+        </p>
+      </div>
+      <a href="https://www.setcheck.app/" class="mono-link log-entry__link" target="_blank" rel="noopener">Learn more &rarr;</a>
+    </article>
 
+    <!-- Encore -->
+    <article class="log-entry" aria-labelledby="encore-name">
+      <div class="log-entry__scope">
+        <svg class="scope" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+          <circle class="scope__ring" cx="48" cy="48" r="44" stroke-opacity="0.25" />
+          <circle class="scope__ring" cx="48" cy="48" r="26" stroke-opacity="0.12" />
+          <circle class="scope__center" cx="48" cy="48" r="1.5" />
+          <circle class="scope__blip" cx="30" cy="35" r="5" />
+        </svg>
+      </div>
+      <p class="log-entry__meta">Signal 03<br>BRG 305&deg;</p>
+      <div class="log-entry__body">
+        <h2 id="encore-name" class="log-entry__title">Encore</h2>
+        <p class="log-entry__desc">
+          A release tracker for the artists you care about. Follow them once
+          and never miss a single, EP, or surprise album again.
+        </p>
+      </div>
+      <a href="https://theencore.xyz/" class="mono-link log-entry__link" target="_blank" rel="noopener">Learn more &rarr;</a>
+    </article>
+
+    <!-- Forming offshore -->
+    <article class="log-entry log-entry--faint" aria-labelledby="unnamed-name">
+      <div class="log-entry__scope">
+        <svg class="scope scope--faint" width="96" height="96" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+          <circle class="scope__ring scope__ring--dashed" cx="48" cy="48" r="44" stroke-opacity="0.3" />
+          <circle class="scope__center" cx="48" cy="48" r="1.5" />
+          <circle class="scope__blip" cx="61" cy="61" r="4" />
+        </svg>
+      </div>
+      <p class="log-entry__meta">Signal 04<br>Faint</p>
+      <div class="log-entry__body">
+        <h2 id="unnamed-name" class="log-entry__title">Unnamed &mdash; forming offshore.</h2>
+        <p class="log-entry__desc">
+          Something small and useful, still gathering strength.
+          We&rsquo;ll name it when it makes landfall.
+        </p>
+      </div>
+      <span class="log-entry__status">Tracking&hellip;</span>
+    </article>
   </main>
 
-  <!-- Who we are -->
-  <section class="team-peek" aria-labelledby="team-heading">
-    <div class="team-peek-inner">
-      <p class="eyebrow">Who we are</p>
-      <h2 id="team-heading" class="section-headline">Four people with <em>a simple goal.</em></h2>
-      <p class="why-lede">
-        We&rsquo;re a small group of developers who build software because we believe
-        small, useful tools are a quiet way to serve people.
+  <!-- Manifest -->
+  <section class="band" aria-labelledby="manifest-heading">
+    <p class="kicker band__kicker">Manifest &mdash; Who we are</p>
+    <h2 id="manifest-heading" class="band__headline">Four friends with a simple goal.</h2>
+    <div class="band__cols">
+      <p class="band__col">
+        We build software because we believe small, useful tools are a quiet way to
+        serve people. No dark patterns, no engagement traps, no ads that follow you home.
       </p>
-      <p class="team-peek-body">
-        No dark patterns. No engagement traps. No ads that follow you home.
-        Just the kind of apps we&rsquo;d hand to our families without a disclaimer.
+      <p class="band__col">
+        Just the kind of apps we&rsquo;d hand to our families without a disclaimer
+        &mdash; built slowly, on purpose, to last.
       </p>
-      <a href="/about.html" class="team-link">
-        Read more about us <span aria-hidden="true">&rarr;</span>
-      </a>
     </div>
+    <a href="/about.html" class="mono-link band__link">Learn more about us &rarr;</a>
   </section>
 
   <footer class="footer">
-    <div class="footer-row">
-      <div class="footer-brand">
-        <img src="/assets/images/cat5-logo.svg" alt="Category5" class="brand-logo brand-logo--small" width="139" height="24">
-        <span class="footer-copy">&copy; 2026</span>
-      </div>
-      <ul class="footer-links">
-        <li><a href="/about.html">About</a></li>
-        <li><a href="mailto:hello@category5.co">Say hi</a></li>
-      </ul>
+    <div class="footer__brand">
+      <span class="brand-logo brand-logo--small" role="img" aria-label="Category5"></span>
+      <span class="footer__copy">&copy; 2026</span>
     </div>
-    <p class="footer-faith">Romans 6:23</p>
+    <p class="footer__faith">Romans 6:23</p>
+    <a href="mailto:hello@category5.co" class="footer__mail">hello@category5.co</a>
   </footer>
 
+  <script src="/theme.js" defer></script>
 </body>
 </html>
