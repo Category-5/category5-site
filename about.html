@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Category5</title>
-  <meta name="description" content="Four developers building software because we believe small, useful tools are a way to serve people.">
+  <meta name="description" content="Four friends who like making things that last. We run a small software station — no investors, no growth team, no ads.">
   <meta name="author" content="Category5">
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -12,90 +12,145 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="About — Category5">
-  <meta property="og:description" content="Four developers building software because we believe small, useful tools are a way to serve people.">
+  <meta property="og:description" content="Four friends who like making things that last. We run a small software station — no investors, no growth team, no ads.">
   <meta property="og:url" content="https://category5.co/about.html">
   <meta property="og:image" content="https://category5.co/assets/images/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="page-about">
 
   <nav class="nav" aria-label="Primary">
-    <a href="/" class="nav-brand" aria-label="Category5 home">
-      <img src="/assets/images/cat5-logo.svg" alt="Category5" class="brand-logo" width="162" height="28">
-    </a>
-    <div class="nav-links">
-      <a href="/about.html" aria-current="page">About</a>
-      <a href="mailto:hello@category5.co">Say hi</a>
+    <div class="nav__left">
+      <a href="/" class="nav__brand" aria-label="Category5 home">
+        <span class="brand-logo"></span>
+      </a>
+      <button type="button" class="nav__coords" aria-label="Toggle station coordinates">35.78&deg; N, 78.64&deg; W</button>
+    </div>
+    <div class="nav__right">
+      <a href="/about.html" class="nav__link" aria-current="page">About</a>
+      <a href="mailto:hello@category5.co" class="nav__cta">Send a signal</a>
+      <button type="button" class="theme-toggle nav__toggle" aria-label="Switch to dark mode">
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
 
   <header class="page-header">
-    <div class="page-header-inner">
-      <p class="eyebrow">About</p>
-      <h1 class="page-headline">
-        We&rsquo;re four people who like<br>
-        <em>making things that last.</em>
-      </h1>
+    <div class="radar radar--faint page-header__radar" aria-hidden="true">
+      <div class="radar__trail"></div>
+      <svg class="radar__screen" viewBox="0 0 700 700" focusable="false">
+        <circle class="radar__ring" cx="350" cy="350" r="330" stroke-opacity="0.18" />
+        <circle class="radar__ring" cx="350" cy="350" r="240" stroke-opacity="0.10" />
+        <circle class="radar__ring" cx="350" cy="350" r="150" stroke-opacity="0.08" />
+        <g class="radar__arm" style="transform-origin: 350px 350px">
+          <line class="radar__sweep" x1="350" y1="350" x2="350" y2="20" />
+        </g>
+      </svg>
     </div>
+    <p class="kicker">Crew manifest &mdash; The people on watch</p>
+    <h1 class="page-header__headline">Category5 is a hybrid software team creating meaningful products that are built to last.</h1>
+    <!--<p class="page-header__lede">
+      We run a small software station. No investors, no growth team, no ads &mdash;
+      just four people who believe small, useful tools are a quiet way to serve others.
+    </p>-->
   </header>
 
-  <!-- DRAFT: revise -->
+  <!--<section class="crew-grid" aria-label="The crew">
+    <article class="crew-card crew-grid__item">
+      <svg class="scope crew-card__scope" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle class="scope__ring" cx="32" cy="32" r="30" stroke-opacity="0.3" />
+        <circle class="scope__blip scope__blip--accent" cx="32" cy="32" r="6" />
+      </svg>
+      <p class="crew-card__watch">First watch</p>
+      <h2 class="crew-card__name">The one who builds Remember</h2>
+      <p class="crew-card__note">Keeps a journal on paper too. Forgets nothing now.</p>
+    </article>
+    <article class="crew-card crew-grid__item">
+      <svg class="scope crew-card__scope" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle class="scope__ring" cx="32" cy="32" r="30" stroke-opacity="0.3" />
+        <circle class="scope__blip" cx="24" cy="40" r="6" />
+      </svg>
+      <p class="crew-card__watch">Second watch</p>
+      <h2 class="crew-card__name">The one who builds SetCheck</h2>
+      <p class="crew-card__note">Plays in a band. The group chat is for jokes now.</p>
+    </article>
+    <article class="crew-card crew-grid__item">
+      <svg class="scope crew-card__scope" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle class="scope__ring" cx="32" cy="32" r="30" stroke-opacity="0.3" />
+        <circle class="scope__blip" cx="44" cy="26" r="6" />
+      </svg>
+      <p class="crew-card__watch">Third watch</p>
+      <h2 class="crew-card__name">The one with the red pen</h2>
+      <p class="crew-card__note">Design and words. Rewrites this page when we&rsquo;re not looking.</p>
+    </article>
+    <article class="crew-card crew-grid__item">
+      <svg class="scope crew-card__scope" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle class="scope__ring" cx="32" cy="32" r="30" stroke-opacity="0.3" />
+        <circle class="scope__blip" cx="20" cy="24" r="6" />
+      </svg>
+      <p class="crew-card__watch">Fourth watch</p>
+      <h2 class="crew-card__name">The one who keeps the lights on</h2>
+      <p class="crew-card__note">Servers, backups, and the occasional 2 a.m. page.</p>
+    </article>
+  </section>-->
+
   <section class="why" aria-labelledby="why-heading">
-    <div class="why-inner">
-      <h2 id="why-heading" class="section-headline">Why we build</h2>
-
-      <p class="why-lede">
-        We&rsquo;re four Christians who build software because we believe small,
-        useful tools are a quiet way to serve people. The apps we make are the apps
-        we want to use ourselves &mdash; and the kind we&rsquo;d hand to our families
-        without a disclaimer.
+    <div class="why__head">
+      <p class="kicker">Standing orders</p>
+      <h2 id="why-heading" class="why__headline">Why we build.</h2>
+    </div>
+    <div class="why__body">
+      <p class="why__lede">
+        We&rsquo;re four Christians who build software because we believe small, useful
+        tools are a quiet way to serve people. The apps we make are the apps we want to
+        use ourselves &mdash; and the kind we&rsquo;d hand to our families without a disclaimer.
       </p>
-
-      <p>
-        That means: no dark patterns, no engagement traps, no ads that follow you home.
+      <p class="why__text">
+        That means no dark patterns, no engagement traps, no ads that follow you home.
         It also means we take our time. We&rsquo;d rather ship something small that works
         than something big that wastes your attention.
       </p>
-
-      <p>
-        Our faith shapes how we work, but it isn&rsquo;t the price of admission.
+      <p class="why__text">
+        Our faith shapes how we work; we work diligently, respond humbly, and treat people kindly.
         Whoever you are, we hope these apps are useful to you.
       </p>
     </div>
   </section>
 
-  <section class="say-hi" aria-labelledby="say-hi-heading">
-    <div class="say-hi-inner">
-      <h2 id="say-hi-heading" class="section-headline">Say hi</h2>
-      <p class="say-hi-body">
-        Got a question, kind word, or bug report?
-        We read everything that comes in.
-      </p>
-      <p class="say-hi-actions">
-        <a href="mailto:hello@category5.co" class="say-hi-primary">hello@category5.co</a>
-      </p>
+  <section class="band" aria-labelledby="say-hi-heading">
+    <p class="kicker band__kicker">Open channel</p>
+    <h2 id="say-hi-heading" class="band__headline">Got a question, kind word, or bug report?</h2>
+    <div class="band__cols">
+      <p class="band__col">We read everything that comes in.</p>
     </div>
+    <a href="mailto:hello@category5.co" class="mono-link band__link">hello@category5.co &rarr;</a>
   </section>
 
   <footer class="footer">
-    <div class="footer-row">
-      <div class="footer-brand">
-        <img src="/assets/images/cat5-logo.svg" alt="Category5" class="brand-logo brand-logo--small" width="139" height="24">
-        <span class="footer-copy">&copy; 2026</span>
-      </div>
-      <ul class="footer-links">
-        <li><a href="/about.html">About</a></li>
-        <li><a href="mailto:hello@category5.co">Say hi</a></li>
-      </ul>
+    <div class="footer__brand">
+      <span class="brand-logo brand-logo--small" role="img" aria-label="Category5"></span>
+      <span class="footer__copy">&copy; 2026</span>
     </div>
-    <p class="footer-faith">Romans 6:23</p>
+    <p class="footer__faith">Romans 6:23</p>
+    <a href="mailto:hello@category5.co" class="footer__mail">hello@category5.co</a>
   </footer>
 
+  <script src="/theme.js" defer></script>
 </body>
 </html>
