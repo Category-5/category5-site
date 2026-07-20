@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -48,13 +48,20 @@
       </a>
       <button type="button" class="nav__coords" aria-label="Toggle station coordinates">35.78&deg; N, 78.64&deg; W</button>
     </div>
-    <div class="nav__right">
-      <a href="/about.html" class="nav__link">About</a>
-      <a href="mailto:hello@category5.co" class="nav__cta">Send a signal</a>
-      <button type="button" class="theme-toggle nav__toggle" aria-label="Switch to dark mode">
-        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></span>
-        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></span>
-      </button>
+    <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav__hamburger-bars" aria-hidden="true"></span>
+    </button>
+
+    <div class="nav__menu" id="nav-menu">
+      <div class="nav__menu-inner">
+        <a href="/about.html" class="nav__action">About</a>
+        <a href="mailto:hello@category5.co" class="nav__action nav__action--cta">Send a signal</a>
+        <button type="button" class="theme-toggle nav__action" aria-label="Switch to dark mode">
+          <span class="theme-toggle__label">Dark mode</span>
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -86,7 +93,7 @@
     </div>
     <div class="hero__copy">
       <p class="kicker hero__kicker">Category5 &mdash; On watch since 2026</p>
-      <h1 class="hero__headline">Software products<br>for any storm</h1>
+      <h1 class="hero__headline">Software products <br class="hero__headline-break">for any storm</h1>
       <p class="hero__sub">
         We are a small group of friends who want to share some of our software with others.
       </p>

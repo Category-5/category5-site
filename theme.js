@@ -11,6 +11,10 @@
     var dark = effectiveTheme() === "dark";
     buttons.forEach(function (button) {
       button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      // The visible label names the active theme, like the icon; the
+      // aria-label above stays phrased as the action for screen readers.
+      var label = button.querySelector(".theme-toggle__label");
+      if (label) label.textContent = dark ? "Dark mode" : "Light mode";
     });
   }
 
@@ -24,6 +28,44 @@
       try { localStorage.setItem("theme", next); } catch (e) {}
       updateLabels();
     });
+  });
+})();
+
+/* Nav menu: hamburger opens a panel that slides down from the nav bar */
+(function () {
+  var button = document.querySelector(".nav__hamburger");
+  var menu = document.querySelector(".nav__menu");
+  if (!button || !menu) return;
+
+  function isOpen() {
+    return button.getAttribute("aria-expanded") === "true";
+  }
+
+  function setOpen(open) {
+    menu.classList.toggle("nav__menu--open", open);
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  button.addEventListener("click", function () {
+    setOpen(!isOpen());
+  });
+
+  // Links close the menu; the theme toggle stays open so the change is visible.
+  menu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () { setOpen(false); });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape" || !isOpen()) return;
+    setOpen(false);
+    button.focus();
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!isOpen()) return;
+    if (menu.contains(e.target) || button.contains(e.target)) return;
+    setOpen(false);
   });
 })();
 
