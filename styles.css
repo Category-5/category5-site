@@ -242,10 +242,13 @@ a { color: inherit; }
     }
   }
 
-  /* Slide-down panel: the grid row collapses to 0fr when closed */
+  /* Slide-down panel: the grid row collapses to 0fr when closed.
+     Absolute positioning resolves against the nav's padding box, so top:100%
+     would land on the nav's bottom border and paint over it; the extra 1px
+     clears the border so the header keeps its divider at every width. */
   .nav__menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 1px);
     left: 0;
     right: 0;
     display: grid;
