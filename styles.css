@@ -432,7 +432,9 @@ a { color: inherit; }
 
   .radar__trail {
     position: absolute;
-    inset: 20px; /* outer ring sits 20px inside the box */
+    /* Matches the outer ring, which the 760 viewBox puts 20px inside the box;
+       as a percentage it tracks the ring at any rendered radar size */
+    inset: 2.632%;
     border-radius: 50%;
     background: conic-gradient(from 0deg, transparent 0deg 250deg, var(--trail) 360deg);
     animation: radar-rotate var(--sweep-period) linear infinite;
@@ -536,14 +538,26 @@ a { color: inherit; }
   overflow: clip;
   border-bottom: 1px solid var(--line);
 
-  /* Mix: positions the radar block within the hero */
+  /* Mix: positions the radar block within the hero.
+
+     Centred on the hero rather than pinned to its top, for two reasons:
+     the gap to the top and bottom borders stays equal at every height, and
+     the radar shares its centre with the copy — so if the hero height ever
+     shifts (mobile browser chrome collapsing on scroll), copy and radar move
+     together instead of the text sliding across the sweep.
+
+     Height drives the size and aspect-ratio squares it up, so the radar
+     shrinks to fit short viewports; it caps at the 760px design size, which
+     leaves the usual 30px on each side of the 820px desktop hero. */
   .hero__radar {
     position: absolute;
-    top: 30px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 760px;
-    height: 760px;
+    transform: translate(-50%, -50%);
+    height: calc(100% - 60px);
+    max-height: 760px;
+    width: auto;
+    aspect-ratio: 1;
   }
 
   .hero__copy {
